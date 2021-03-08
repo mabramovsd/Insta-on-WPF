@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30517.126
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InstaMilligram", "InstaMilligram.csproj", "{D6F6E7FE-F85B-4C28-A1B0-AE90FE01032F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D6F6E7FE-F85B-4C28-A1B0-AE90FE01032F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6F6E7FE-F85B-4C28-A1B0-AE90FE01032F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6F6E7FE-F85B-4C28-A1B0-AE90FE01032F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6F6E7FE-F85B-4C28-A1B0-AE90FE01032F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {74E3B081-7DF9-4F5A-BFA3-8052C24C85F2}
+	EndGlobalSection
+EndGlobal
