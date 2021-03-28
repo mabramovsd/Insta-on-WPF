@@ -24,11 +24,18 @@ namespace InstaMilligram
         {
             InitializeComponent();
             frame.Content = new GuestPage();
+            SQLClass.OpenConnection();
+            StaticVars.MainWnd = frame;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             frame.Content = new ProfilePage();
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            SQLClass.CloseConnection();
         }
     }
 }
