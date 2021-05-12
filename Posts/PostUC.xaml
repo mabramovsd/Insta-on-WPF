@@ -34,7 +34,7 @@
             </Button>
             <StackPanel x:Name="LikesPanel" Width="200px" Orientation="Horizontal">
                 <TextBlock Text="01.01.2001" FontSize="12" x:Name="dtField" Width="120px" Height="25px" Margin="5"/>
-                <Button Style="{StaticResource ImageButtonStyle}">
+                <Button Style="{StaticResource ImageButtonStyle}" Click="LikePost">
                     <Image x:Name="heart" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Right" Height="20px" Stretch="UniformToFill" Source="../Resources/heart.png"/>
                 </Button>
                 <TextBlock Text="10"  FontSize="12" HorizontalAlignment="Right" x:Name="likes" Height="25px" Margin="5"/>

@@ -16,14 +16,18 @@ namespace InstaMilligram
 
             Fr.Children.Clear();
             string commandText =
-                "SELECT DT, Text, Posts.Id, Users.Id, Users.Login" +
+                "SELECT DT, Text, Posts.Id, Users.Id, Users.Login, COUNT(lks.UserId), COUNT(lks2.UserId)" +
                 " FROM Posts JOIN Users ON Posts.UserId = Users.Id";
             if (UserId != "")
-                commandText += " WHERE Users.Id = " + UserId;
-            commandText +=    " ORDER BY DT DESC";
+                commandText += " AND Users.Id = " + UserId;
+            commandText +=
+                " LEFT JOIN Likes lks ON lks.PostId = Posts.Id" +
+                " LEFT JOIN Likes lks2 ON lks2.PostId = Posts.Id AND lks.UserId = lks2.UserId AND lks2.UserId = 0" + StaticVars.UserId +
+                " GROUP BY DT, Text, Posts.Id, Users.Id, Users.Login" +
+                " ORDER BY DT DESC";
             List<string> posts = SQLClass.Select(commandText);
 
-            for (int i = 0; i < posts.Count; i += 5)
+            for (int i = 0; i < posts.Count; i += 7)
             {
                 BitmapImage image = SQLClass.SelectImage(
                     "SELECT Photo FROM Posts WHERE Id = " + posts[i + 2]);
@@ -34,13 +38,14 @@ namespace InstaMilligram
                 if (authorImg == null)
                     authorImg = new BitmapImage(new Uri("../Resources/Nothing.png", UriKind.Relative));
 
-                PostUC postUC = new PostUC(image, posts[i+3], posts[i + 4], authorImg, posts[i], posts[i + 1]);
+                PostUC postUC = new PostUC(image, posts[i+3], posts[i + 4], 
+                    authorImg, posts[i], posts[i + 1], posts[i + 5], posts[i + 6], posts[i + 2]);
                 Fr.Children.Add(postUC);
             }
 
-            if (posts.Count < 10)
+            if (posts.Count < 14)
                 Fr.Children.Add(new PostUC());
-            if (posts.Count < 15)
+            if (posts.Count < 21)
                 Fr.Children.Add(new PostUC());
 
             if (UserId != "" && UserName != "")
