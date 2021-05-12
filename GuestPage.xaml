@@ -23,7 +23,7 @@
             <TextBlock Text="Пароль"/>
             <TextBox/>
             <Button Content="Войти" Margin="0,5,0,5" Click="Button_Click" Background="White"/>
-            <Button Content="Регистрация" Background="White"/>
+            <Button Content="Регистрация" Click="Register_Click" Background="White"/>
         </StackPanel>
 
 

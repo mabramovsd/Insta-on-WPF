@@ -13,13 +13,14 @@
         </Grid.RowDefinitions>
 
         <StackPanel Grid.Row="0" Grid.ColumnSpan="2" Orientation="Horizontal">
-            <Button Content="Лента" Style="{StaticResource MenuButtonStyle}"/>
+            <Button Click="OpenTape"  Content="Лента" Style="{StaticResource MenuButtonStyle}"/>
             <Button Click="Button_Click" Style="{StaticResource MenuButtonStyle}">
                 <Image Source="Resources/Gear.png"/>
             </Button>
             <Button Style="{StaticResource MenuButtonStyle}">
                 <Image Source="Resources/House.png"/>
             </Button>
+            <Button Content="+" Click="NewPost" Width="50" Style="{StaticResource MenuButtonStyle}" FontWeight="Bold" FontSize="30"/>
         </StackPanel>
         <Frame Name="frame" Grid.Row="1"/>
 

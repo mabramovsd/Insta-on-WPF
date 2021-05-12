@@ -26,7 +26,7 @@ namespace InstaMilligram
             if (StaticVars.UserId != "")
             {
                 List<string> userData = SQLClass.Select(
-                    "SELECT \"Login\", \"Info\" FROM \"Users\" WHERE \"Id\" = '" + StaticVars.UserId + "'");
+                    "SELECT login, info FROM users WHERE id = '" + StaticVars.UserId + "'");
 
                 if (userData.Count >= 2)
                 {
@@ -37,7 +37,7 @@ namespace InstaMilligram
                     try
                     {
                         BitmapImage image = SQLClass.SelectImage(
-                            "SELECT \"Photo\" FROM \"Users\" WHERE \"Id\" = '" + StaticVars.UserId + "'");
+                            "SELECT photo FROM users WHERE id = '" + StaticVars.UserId + "'");
                         if (image != null)
                             Photo.Source = image;
                     }
@@ -50,22 +50,22 @@ namespace InstaMilligram
         {
             if (StaticVars.UserId != "")
             {
-                SQLClass.Insert("UPDATE \"Users\"" +
-                    " SET \"Login\" = '" + LoginTB.Text + "', " +
-                    "\"Password\" = '" + PassTB.Text + "', " +
-                    "\"Info\" = '" + AboutMeTB.Text + "'" +
-                    " WHERE \"Id\" = " + StaticVars.UserId);
+                SQLClass.Insert("UPDATE users" +
+                    " SET login = '" + LoginTB.Text + "', " +
+                    "password = '" + PassTB.Text + "', " +
+                    "info = '" + AboutMeTB.Text + "'" +
+                    " WHERE id = " + StaticVars.UserId);
             }
             else
             {
-                SQLClass.Insert("INSERT INTO \"Users\"(\"Login\", \"Password\", \"Info\")" +
+                SQLClass.Insert("INSERT INTO Users(Login, Password, Info)" +
                     " VALUES('" + LoginTB.Text + "'," +
                     "'" + PassTB.Text + "'," +
                     "'" + AboutMeTB.Text + "')");
             }
 
             if (picAddress != "")
-                SQLClass.UpdateImg("UPDATE \"Users\" SET \"Photo\" = @Image WHERE \"Login\" = '" + LoginTB.Text + "'", picAddress);
+                SQLClass.UpdateImg("UPDATE Users SET Photo = @Image WHERE Login = '" + LoginTB.Text + "'", picAddress);
 
 
             if (StaticVars.UserId == "")
@@ -73,7 +73,7 @@ namespace InstaMilligram
                 MessageBox.Show("Вы успешно зарегистрированы");
 
                 StaticVars.Login = LoginTB.Text;
-                StaticVars.UserId = SQLClass.Select("SELECT MAX(\"Id\") FROM \"Users\" WHERE \"Login\" = '" + LoginTB.Text + "'")[0];
+                StaticVars.UserId = SQLClass.Select("SELECT MAX(Id) FROM Users WHERE Login = '" + LoginTB.Text + "'")[0];
             }
             else
             {

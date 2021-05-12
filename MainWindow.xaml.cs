@@ -32,6 +32,15 @@ namespace InstaMilligram
         {
             frame.Content = new ProfilePage();
         }
+        private void OpenTape(object sender, RoutedEventArgs e)
+        {
+            frame.Content = new TapePage();
+        }
+
+        private void NewPost(object sender, RoutedEventArgs e)
+        {
+            frame.Content = new AddPost();
+        }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
