@@ -23,7 +23,7 @@
                 </Button>
             </StackPanel>
             
-            <Button Style="{StaticResource ImageButtonStyle}">
+            <Button Style="{StaticResource ImageButtonStyle}" Click="OpenPost">
             <Image x:Name="PostImage" Source="../Resources/Nothing.png" Width="200px" Height="200px" Stretch="Uniform" Margin="10">
                 <Image.Clip>
                     <RectangleGeometry RadiusX="0"

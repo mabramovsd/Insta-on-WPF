@@ -27,7 +27,11 @@ namespace InstaMilligram
             SQLClass.OpenConnection();
             StaticVars.MainWnd = frame;
         }
-
+        
+        private void GuestPageCLick(object sender, RoutedEventArgs e)
+        {
+            frame.Content = new GuestPage();
+        }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             frame.Content = new ProfilePage();

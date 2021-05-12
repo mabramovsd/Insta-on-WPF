@@ -11,6 +11,7 @@ namespace InstaMilligram
     public partial class PostUC : UserControl
     {
         private readonly string id = "";
+        private string dt = "";
         private string lks = "";
         private string text = "";
         private string myLks = "";
@@ -37,6 +38,7 @@ namespace InstaMilligram
             sourceAuthorImg = _sourceAuthorImg;
             text = _text;
             lks = _lks;
+            dt = _dt;
             myLks = _myLks;
             id = _id;
 
@@ -90,6 +92,15 @@ namespace InstaMilligram
                     myLks = (Convert.ToInt32(myLks) - 1).ToString();
                     likes.Text = lks;
                 }
+            }
+        }
+        private void OpenPost(object sender, RoutedEventArgs e)
+        {
+            if (PostImage.Tag == null ||
+                PostImage.Tag.ToString() != "Nothing")
+            {
+                PostPage postUC = new PostPage(sourceImg, authorId, author, sourceAuthorImg, dt, text, lks, myLks, id);
+                StaticVars.MainWnd.Content = postUC;
             }
         }
     }
